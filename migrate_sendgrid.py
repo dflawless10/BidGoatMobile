@@ -54,6 +54,14 @@ def backup_file(file_path):
     return backup_path
 
 
+def is_import_or_comment_line(line):
+    """Check if a line is an import statement or comment"""
+    stripped = line.strip()
+    return (stripped.startswith('import ') or 
+            stripped.startswith('from ') or
+            stripped.startswith('#'))
+
+
 def ensure_imports(content):
     """Ensure required imports are present"""
     has_dotenv = 'from dotenv import load_dotenv' in content or 'import dotenv' in content
@@ -92,9 +100,7 @@ def ensure_imports(content):
         # Find the end of imports section
         import_end = insert_index
         for i in range(insert_index, len(lines)):
-            if lines[i].strip() and not (lines[i].strip().startswith('import ') or 
-                                         lines[i].strip().startswith('from ') or
-                                         lines[i].strip().startswith('#')):
+            if lines[i].strip() and not is_import_or_comment_line(lines[i]):
                 import_end = i
                 break
         
@@ -210,7 +216,7 @@ def main():
         print("  The script looks for keys starting with 'SG.'")
         api_key = input("\nPlease enter your SendGrid API key manually: ").strip()
     else:
-        print(f"✓ Found API key: {api_key[:10]}...{api_key[-5:]}")
+        print(f"✓ Found SendGrid API key (length: {len(api_key)} characters)")
     
     # Create .env file
     print("\n" + "-" * 70)

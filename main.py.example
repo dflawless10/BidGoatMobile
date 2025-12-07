@@ -36,8 +36,8 @@ def send_email(to_email, subject, content):
     )
     
     try:
-        # Use environment variable for API key
-        sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
+        # Use the validated API key from module level
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
         response = sg.send(message)
         print(f"Email sent! Status code: {response.status_code}")
         return response
@@ -65,8 +65,8 @@ def send_verification_email(user_email, verification_code):
     </html>
     """
     
-    # Initialize SendGrid client with environment variable
-    sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
+    # Initialize SendGrid client with validated API key
+    sg = SendGridAPIClient(SENDGRID_API_KEY)
     
     message = Mail(
         from_email='verify@bidgoat.com',
@@ -92,9 +92,8 @@ def send_bid_notification(user_email, item_name, bid_amount):
         item_name (str): Name of the item
         bid_amount (float): Bid amount
     """
-    # Use environment variable for API key - this is the correct pattern
-    api_key = os.getenv('SENDGRID_API_KEY')
-    sg = SendGridAPIClient(api_key)
+    # Use the validated API key from module level
+    sg = SendGridAPIClient(SENDGRID_API_KEY)
     
     subject = f"New bid on {item_name}"
     content = f"""

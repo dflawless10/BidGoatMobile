@@ -19,7 +19,7 @@ if not api_key:
 
 # Test that the API key is loaded correctly
 print("✓ SendGrid API Key loaded from environment variable")
-print(f"✓ API Key starts with: {api_key[:10]}..." if len(api_key) > 10 else "✓ API Key loaded")
+print(f"✓ API Key length: {len(api_key)} characters" if api_key else "✗ API Key is empty")
 
 try:
     from sendgrid import SendGridAPIClient
