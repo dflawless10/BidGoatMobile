@@ -25,6 +25,17 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
+## GitHub Authentication
+
+If you encounter authentication errors when using Git operations (push, pull, etc.), GitHub requires you to use a Personal Access Token instead of your password.
+
+📖 **See [GITHUB_TOKEN_SETUP.md](./GITHUB_TOKEN_SETUP.md) for detailed instructions on generating and using GitHub tokens.**
+
+Common error:
+```
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+```
+
 ## Get a fresh project
 
 When you're ready, run:
