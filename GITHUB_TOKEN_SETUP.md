@@ -94,7 +94,7 @@ https://github.com/username/repository.git
 https://TOKEN@github.com/username/repository.git
 
 # Example command to update remote
-git remote set-url origin https://ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@github.com/dflawless10/gobidgoat.git
+git remote set-url origin https://ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@github.com/USERNAME/REPOSITORY.git
 ```
 
 ### Method 3: Use Git Credential Manager
@@ -131,10 +131,10 @@ Based on your error message, here's how to fix it:
 
 ```bash
 # Navigate to your repository
-cd /var/www/gobidgoat
+cd /path/to/your/repository
 
 # Option 1: Update the remote URL with your token
-git remote set-url origin https://YOUR_TOKEN_HERE@github.com/dflawless10/gobidgoat.git
+git remote set-url origin https://YOUR_TOKEN_HERE@github.com/USERNAME/REPOSITORY.git
 
 # Option 2: Or use credential helper and enter token when prompted
 git config credential.helper store

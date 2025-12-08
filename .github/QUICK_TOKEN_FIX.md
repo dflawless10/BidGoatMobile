@@ -21,17 +21,17 @@ Choose one method:
 
 #### Method A: Update Remote URL (Recommended)
 ```bash
-cd /var/www/gobidgoat
-git remote set-url origin https://YOUR_TOKEN@github.com/dflawless10/gobidgoat.git
+cd /path/to/your/repository
+git remote set-url origin https://YOUR_TOKEN@github.com/USERNAME/REPOSITORY.git
 git pull  # Should work now!
 ```
 
 #### Method B: Use Credential Helper
 ```bash
-cd /var/www/gobidgoat
+cd /path/to/your/repository
 git config credential.helper store
 git pull
-# Username: dflawless10
+# Username: your-github-username
 # Password: ghp_YOUR_TOKEN_HERE
 ```
 
